@@ -1,0 +1,21 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "cpu-stat": "^2.0.1",
+    "discord.js": "^11.5.1",
+    "fs": "^0.0.1-security",
+    "moment": "^2.24.0",
+    "moment-duration-format": "^2.3.2",
+    "os": "^0.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": ""
+}
