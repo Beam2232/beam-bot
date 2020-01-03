@@ -24,7 +24,7 @@ client.on('message', (message) => {
   if (message.author.bot) return;
   // Bot mencionado (Caso for trocar o bot mudar o id aqui embaixo)
   if (message.content.startsWith(`<@655573308670214144>`)) { //< ID
-    message.channel.send('Para saber minha lista de comandos, digite: \`\`/ajuda\`\`')
+    message.channel.send('Para saber minha lista de comandos, digite: \`\`.ajuda\`\`')
   // "\`\`/ajuda\`\`" deixa a mensagem com um preto atrás.
   }});
 
@@ -46,13 +46,13 @@ client.on('message', (message) => {
     comandoFile.run(client, message, args);
   } catch (err) {
     // Se o comando não existir vai imprimir isso:
+    console.log(err)
     return message.channel.send(new Discord.RichEmbed()
-      .setTitle(`O comando \`\`/${comando}\`\` não existe`)
+      .setTitle(`O comando \`\`.${comando}\`\` não existe`)
       .setTimestamp()
       .setColor('#a32aff')
       .setThumbnail('')
-      .setDescription(`Digite /ajuda e descubra os meus comandos.`))
-    // console.log(err)
+      .setDescription(`Digite .ajuda e descubra os meus comandos.`))
   };
 });
 

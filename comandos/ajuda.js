@@ -25,7 +25,7 @@ exports.run = (bot, message, args) => {
       admCreate.on('collect', r2 => {
         embed = new Discord.RichEmbed()
           .setTitle('**⚙️ Comandos de administração**')
-          .setDescription('`/limpar` Limpa entre 2 e 100 mensagens do canal. \n\n `/falar` Repete uma mensagem. \n\n `/ban` Bane algum membro infrator. \n\n `/anunciar` Anuncia alguma mensagem importante. \n\n');
+          .setDescription('`.limpar` Limpa entre 2 e 100 mensagens do canal. \n\n `.falar` Repete uma mensagem. \n\n `.ban` Bane algum membro infrator. \n\n `.anunciar` Anuncia alguma mensagem importante. \n\n `.votar` Inicia uma votação. \n\n');
           // Mostrando os comandos ^^
           msg.edit(embed); // Editando embed
       });
@@ -34,7 +34,7 @@ exports.run = (bot, message, args) => {
       pubCreate.on('collect', r2 => {
         embed = new Discord.RichEmbed()
           .setTitle('**🔰 Comandos públicos para todos**')
-          .setDescription('`/ajuda` Mostra meus comandos. \n\n`/ping` Mostra meu ping. \n\n `/botinfo` Mostra as informações do bot. \n\n');
+          .setDescription('`.ajuda` Mostra meus comandos. \n\n`.ping` Mostra meu ping. \n\n `.botinfo` Mostra as informações do bot. \n\n');
           // Mostrando os comandos públicos ^^
           msg.edit(embed); // Editando embed
       });

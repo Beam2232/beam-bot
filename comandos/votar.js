@@ -12,13 +12,15 @@ exports.run = (client, message, args) => {
   const msg = args[0]
 
   if (!msg) {
+    message.delete().catch(O_o => {});
     return message.channel.send(new Discord.RichEmbed()
-      .setDescription('**Comando:** /votar')
+      .setDescription('**Comando:** .votar')
       .setColor('#5e29ff')
       .setImage('')
       .setThumbnail('')
-      .addField('Uso:', '\`\`/votar\`\`')
-      .addField('Exemplo:', '\`\`/votar Vocês querem evento?`\`'))};
+      .addField('Uso:', '\`\`.votar\`\`')
+      .addField('Exemplo:', '\`\`.votar Vocês querem evento?`\`')).then(m =>
+        m.delete(delay))};
 
   const mensagem = args.join(' ');
 
@@ -31,10 +33,10 @@ exports.run = (client, message, args) => {
     .setThumbnail('')
     .setFooter(`Iniciada por: ${message.author.tag}`, message.author.avatarURL);
 
-    message.delete().catch(O_o => {});
-    message.channel.send('@everyone a votação se encerra em 100 minutos.', embed).then(m => {
+    message.channel.send('@everyone.', embed).then(m => {
       m.react('✅');
       m.react('❌');
     });
+    message.delete().catch(O_o => {});
 
 };
