@@ -2,43 +2,44 @@ const Discord = require('discord.js');
 
 exports.run = (bot, message, args) => {
   message.reply(' enviei a lista de comandos no seu chat privado.').then(m => m.delete(8000));
-  // Respondendo no servidor que a mensagem foi enviada no PV.
 
-  var delay = 2570; // Adiconando delay
-  var embed = new Discord.RichEmbed() // Criando embed no privado
+  var delay = 2570;
+  var embed = new Discord.RichEmbed()
     .setTitle('Clique nas reações abaixo para navegar entre meus comandos.')
     .setDescription('⚙️ Comandos de administração. \n \n 🔰 Comandos públicos para todos.');
 
-    // Adiconando reações no embed
     message.author.send({ embed }).then( msg => {
       msg.react('⚙️').then(setTimeout(r => {
       msg.react('🔰');
       }, delay ));
 
-      // Criando função para as reações
       const adm = (reaction, user) => reaction.emoji.name === '⚙️' && user.id === message.author.id;
       const pub = (reaction, user) => reaction.emoji.name === '🔰' && user.id === message.author.id;
       const admCreate = msg.createReactionCollector(adm, { time: 60000 });
       const pubCreate = msg.createReactionCollector(pub, { time: 60000 });
 
-      // Coletando a reação ⚙️ e respondendo
       admCreate.on('collect', r2 => {
         embed = new Discord.RichEmbed()
           .setTitle('**⚙️ Comandos de administração**')
-          .setDescription('`.limpar` Limpa entre 2 e 100 mensagens do canal. \n\n `.falar` Repete uma mensagem. \n\n `.ban` Bane algum membro infrator. \n\n `.anunciar` Anuncia alguma mensagem importante. \n\n `.votar` Inicia uma votação. \n\n');
-          // Mostrando os comandos ^^
-          msg.edit(embed); // Editando embed
+          .setDescription(['`.limpar` Limpa entre 2 e 100 mensagens do canal. \n',
+            '`.falar` Repete uma mensagem. \n',
+            '`.ban` Bane algum membro infrator. \n',
+            '`.anunciar` Anuncia alguma mensagem importante. \n',
+            '`.votar` Inicia uma votação. \n',
+            '`.chaton` Ativa um canal. \n',
+            '`.chatoff` Desativa um canal. \n']);
+          msg.edit(embed);
       });
 
-      // Coletando a reação 🔰 e respondendo
       pubCreate.on('collect', r2 => {
         embed = new Discord.RichEmbed()
           .setTitle('**🔰 Comandos públicos para todos**')
-          .setDescription('`.ajuda` Mostra meus comandos. \n\n`.ping` Mostra meu ping. \n\n `.botinfo` Mostra as informações do bot. \n\n');
-          // Mostrando os comandos públicos ^^
-          msg.edit(embed); // Editando embed
+          .setDescription(['`.ajuda` Mostra meus comandos. \n',
+          '`.ping` Mostra meu ping. \n',
+          '`.botinfo` Mostra as informações do bot. \n']);
+          msg.edit(embed);
       });
     });
 
-    message.delete(8000).catch(O_o => {}); // Apaga mensagem do usuário depois de 8s.
+    message.delete(8000).catch(O_o => {});
 };

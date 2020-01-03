@@ -41,18 +41,17 @@ client.on('message', (message) => {
   // A lista de if / else é substituída pelas 2 linhas simples:
 
   try {
-    // Procurando o comando na pasta comandos
     const comandoFile = require(`./comandos/${comando}.js`);
     comandoFile.run(client, message, args);
   } catch (err) {
-    // Se o comando não existir vai imprimir isso:
-    console.log(err)
+    message.delete(5000).catch(O_o => {});
     return message.channel.send(new Discord.RichEmbed()
       .setTitle(`O comando \`\`.${comando}\`\` não existe`)
       .setTimestamp()
       .setColor('#a32aff')
       .setThumbnail('')
-      .setDescription(`Digite .ajuda e descubra os meus comandos.`))
+      .setDescription(`Digite .ajuda e descubra os meus comandos.`)).then(m =>
+        m.delete(5000));
   };
 });
 
