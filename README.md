@@ -1,7 +1,7 @@
 # BeamBot em JavaScript
 ## Um bot para discord em português.
 
-![ajuda](https://github.com/Beam2232/beam-bot-ptbr/blob/master/ajuda.png)
+![Ajuda](https://github.com/Beam2232/beam-bot-ptbr/blob/master/images/ajuda.png)
 
 ### O que é o BeamBot?
 
@@ -9,7 +9,7 @@ Um bot desenvolvido com a API discord.js, feito para te ajudar na administraçã
 
 Alguns comandos de administração para lhe ajudar em seu servidor:
 
-![Comandos de Administração](https://github.com/Beam2232/beam-bot-ptbr/blob/master/comandos_de_adm.png)
+![Comandos de Administração](https://github.com/Beam2232/beam-bot-ptbr/blob/master/images/comandos_de_adm.png)
 
 Em breve serão adicionadas algumas funções de diversões para o bot.
 
