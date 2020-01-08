@@ -1,14 +1,16 @@
 {
   "name": "package.json",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/index.js",
   "dependencies": {
     "cpu-stat": "^2.0.1",
     "discord.js": "^11.5.1",
     "fs": "0.0.1-security",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.3.2",
-    "os": "^0.1.1"
+    "mongoose": "^5.8.5",
+    "os": "^0.1.1",
+    "validator": "^12.1.0"
   },
   "devDependencies": {},
   "scripts": {

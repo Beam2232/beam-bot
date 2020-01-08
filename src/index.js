@@ -1,11 +1,15 @@
-const Discord = require('discord.js'); // Baixando API do Discord
-const client = new Discord.Client(); // Adicionando um bot
-const config = require('./config.json'); // Pegando token e prefix
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const config = require('./config.json');
+const RunMongo = require('./mongodb.js');
+const runModels = require('./RunModels');
 
 // Bot iniciado
 client.on('ready', () => {
   console.log('> Bot iniciado.');
   console.log(`> Atualmente com ${client.users.size} usuários, em ${client.channels.size} canais.`);
+  RunMongo.run();
+  runModels.run();
 });
 
 // Bot adicionado a algum servidor

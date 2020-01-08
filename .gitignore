@@ -1,5 +1,9 @@
 node_modules/*
 package-lock.json
-config.json
+src/config.json
 .editorconfig
 yarn.lock
+src/comandos/addtag.js
+src/comandos/removertag.js
+src/comandos/userinfo.js
+src/comandos/mute.js
