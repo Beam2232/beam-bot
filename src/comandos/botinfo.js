@@ -5,17 +5,19 @@ const fs = require('fs');
 const os = require('os');
 const cpuStat = require('cpu-stat');
 
-module.exports.run = (client, message, args, bot) => {
+exports.run = async (client, message, args) => {
+  
   let duration = moment.duration(client.uptime).format('D [d], H [h], m [m], s [s]');
   moment.locale('pt-br');
 
-  let file = fs.readdirSync('./comandos'); // Vendo quandos comandos o bot tem
+  let file = fs.readdirSync('./src/comandos'); // Vendo quandos comandos o bot tem
   let commands = file.length;
 
   cpuStat.usagePercent(function (err, percent, seconds) {
     if (err) {
       return console.log('> Deu erro');
     };
+    
     const embed = new Discord.RichEmbed()
       .setTitle(' Minhas iformações')
       .setDescription(`[MEU CONVITE](https://discordapp.com/oauth2/authorize?=&client_id=655573308670214144&scope=bot&permissions=8)`)
@@ -52,7 +54,6 @@ module.exports.run = (client, message, args, bot) => {
   });
 };
 
-module.exports.config = {
-  name: "botinfo",
-  aliases: ["botinfo"]
+exports.help = {
+  name: 'botinfo'
 };

@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 
-exports.run = (bot, message, args) => {
+exports.run = async (bot, message, args) => {
   message.reply(' enviei a lista de comandos no seu chat privado.').then(m => m.delete(8000));
 
-  var delay = 2570;
+  const delay = 2570;
   var embed = new Discord.RichEmbed()
     .setTitle('Clique nas reações abaixo para navegar entre meus comandos.')
     .setDescription('⚙️ Comandos de administração. \n \n 🔰 Comandos públicos para todos.');
@@ -42,4 +42,8 @@ exports.run = (bot, message, args) => {
     });
 
     message.delete(8000).catch(O_o => {});
+};
+
+exports.help = {
+  name: 'ajuda'
 };
