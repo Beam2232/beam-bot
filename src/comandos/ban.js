@@ -1,12 +1,19 @@
 const Discord = require('discord.js');
 
+const noPerm = require('./../../utils/noPerm')
+
 exports.run = async (client, message, args) => {
+
   const delay = 10000; // Dely de 10s
-  message.delete(delay).catch(O_o => {}); // Apagando a mensagem enviada
+
+  message.delete(delay).catch(O_o => { }); // Apagando a mensagem enviada
+
   if (message.member.hasPermission('BAN_MEMBERS')) { // Verificando permissão
+
     const member = message.mentions.members.first() // Pegando o player a ser banido
     const author = message.author // Autor da mensagem
     const motivo = args.slice(1).join(' '); // Motivo do ban
+
     if (!member) { // Caso membro não for mencionado, retornará o erro abaixo
       return message.channel.send(`Você precisa mencionar alguém.`).then(m =>
         m.delete(delay)) // Apaga a mensagem no delay
@@ -35,7 +42,7 @@ exports.run = async (client, message, args) => {
 
     await member.ban(`Por: ${author} | Motivo: ${motivo}`) // Banindo
       .catch(error => message.reply(`Não foi possível banir o membro ${member} por ${error}`))
-      // Caso não for banido, envia o erro ^
+    // Caso não for banido, envia o erro ^
 
     const banido = new Discord.RichEmbed() // Mensagem de banido para os ADMS
       .setAuthor(member.user.tag + ' | Ban', member.user.avatarURL)
@@ -48,7 +55,13 @@ exports.run = async (client, message, args) => {
       .setTimestamp()
 
     message.channel.send(banido) // Enviado mensagem de ban
+    
   } else {
-    return message.reply('Você não possui permissão.') // Caso não o autor não tenha perm
+    return noPerm.execute(message) // Caso não o autor não tenha perm
   }
+};
+
+
+exports.help = {
+  name: 'ban'
 };

@@ -1,0 +1,5 @@
+Nesta pasta vai inserir cada Schema/Model que fizer no Mongodb 
+
+USANDO
+
+o pacote mongoose => yarn add mongoose

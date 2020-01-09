@@ -1,4 +1,4 @@
-exports.run = (bot, message, args) => {
+exports.run = async (client, message, args) => {
   const author = message.author;
 
   if (!message.member.hasPermission('ADMINISTRATOR')) {
@@ -19,4 +19,9 @@ exports.run = (bot, message, args) => {
 
   message.channel.send(`✅ | O canal ${message.channel} foi **ativado** por ${author}`);
   message.delete().catch(O_o => {});
+};
+
+
+exports.help = {
+  name: 'chaton'
 };

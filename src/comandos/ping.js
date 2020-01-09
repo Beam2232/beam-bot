@@ -1,14 +1,18 @@
-module.exports.run = async (bot, message) => {
+const Discord = require('discord.js');
+
+exports.run = async (bot, message, args) => {
+  message.delete()
+
   const Ping = Math.round(bot.ping);
 
-  await message.channel.send({
-    embed: {
-      description: `Ping: ${Ping}ms ✅`,
-      color: 5652869,
-    },
-  });
+  const embed = new Discord.RichEmbed()
+  .setDescription(`Ping: ${Ping}ms`)
+  .setColor(5652869)
+
+  await message.channel.send(embed)
+
 };
 
-module.exports.config = {
-  command: 'ping',
+exports.help = {
+  name: 'ping'
 };
