@@ -1,13 +1,10 @@
-const Discord = require('discord.js')
-
-//erro no evento mensagem 
+const Discord = require('discord.js');
 
 exports.execute = async (message) => {
-
   const errorMessage = new Discord.RichEmbed()
     .setTitle(`O comando \`\`${message.content}\`\` não existe`)
     .setTimestamp()
-    .setColor('#a32aff')
+    .setColor('#a10303')
     .setThumbnail('')
     .setDescription(`Digite .ajuda e descubra os meus comandos.`)
 
