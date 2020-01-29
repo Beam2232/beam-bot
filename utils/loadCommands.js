@@ -21,6 +21,6 @@ const ALL = (client) => {
 };
 
 module.exports = {
-    ALL;
+    ALL
 }
 

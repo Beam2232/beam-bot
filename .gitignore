@@ -3,4 +3,3 @@ package-lock.json
 src/config.json
 .editorconfig
 yarn.lock
-src/comandos/welcomeMsg.js
