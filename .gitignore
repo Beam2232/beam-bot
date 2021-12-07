@@ -2,4 +2,3 @@ node_modules/*
 package-lock.json
 src/config.json
 .editorconfig
-yarn.lock
